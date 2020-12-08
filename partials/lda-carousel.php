@@ -56,3 +56,5 @@ if ( have_rows('slides') ) {
   </div>
 
 </section>
+
+<?php
