@@ -1,5 +1,6 @@
-TEST
+# LDA ACF Blocks
 
-0385164d0fcf3386de102208d07214af
+ACF Blocks version for LD&A site.
 
-https://jenkins.bowriverstudio.com/project/Wordpress-Omnis
+## Currently working on:
+1. LDA Carousel
