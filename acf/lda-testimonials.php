@@ -15,7 +15,7 @@ acf_register_block( array(
 	'title'			=> __( 'LDA Testimonials', '' ),
 	'render_template'	=> LDABLOCKSDIR . 'partials/lda-testimonials.php',
 	'category'		=> 'formatting',
-	'icon'			=> 'twitch',
+	'icon'			=> 'testimonial',
 	'mode'			=> 'preview',
 	'keywords'		=> array( 'testimony', 'kudos', 'client', 'opinion' )
 ));
