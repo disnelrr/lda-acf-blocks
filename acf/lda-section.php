@@ -16,8 +16,9 @@ acf_register_block( array(
 	'render_template'	=> LDABLOCKSDIR . 'partials/lda-section.php',
 	'category'		=> 'formatting',
 	'icon'			=> 'analytics',
-	'mode'			=> 'preview',
-	'keywords'		=> array( 'slide' )
+	'keywords'		=> array( 'slide' ),
+	'mode'			=> 'edit',
+	'supports'		=> array( 'mode' => false )
 ));
 
 acf_add_local_field_group(array(

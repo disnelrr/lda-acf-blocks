@@ -16,8 +16,9 @@ acf_register_block( array(
 	'render_template'	=> LDABLOCKSDIR . 'partials/lda-carousel.php',
 	'category'		=> 'formatting',
 	'icon'			=> 'images-alt2',
-	'mode'			=> 'preview',
-	'keywords'		=> array( 'slideshow', 'slide' )
+	'keywords'		=> array( 'slideshow', 'slide' ),
+	'mode'			=> 'edit',
+	'supports'		=> array( 'mode' => false )
 ));
 
 acf_add_local_field_group(array(

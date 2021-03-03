@@ -16,8 +16,9 @@ acf_register_block( array(
 	'render_template'	=> LDABLOCKSDIR . 'partials/lda-contact.php',
 	'category'		=> 'formatting',
 	'icon'			=> 'id',
-	'mode'			=> 'preview',
-	'keywords'		=> array( 'social links', 'mail', 'address', 'phone' )
+	'keywords'		=> array( 'social links', 'mail', 'address', 'phone' ),
+	'mode'			=> 'edit',
+	'supports'		=> array( 'mode' => false )
 ));
 
 if( function_exists('acf_add_local_field_group') ):

@@ -16,8 +16,9 @@ acf_register_block( array(
 	'render_template'	=> LDABLOCKSDIR . 'partials/lda-testimonials.php',
 	'category'		=> 'formatting',
 	'icon'			=> 'testimonial',
-	'mode'			=> 'preview',
-	'keywords'		=> array( 'testimony', 'kudos', 'client', 'opinion' )
+	'mode'			=> 'edit',
+	'keywords'		=> array( 'testimony', 'kudos', 'client', 'opinion' ),
+	'supports'		=> array( 'mode' => false )
 ));
 
 if( function_exists('acf_add_local_field_group') ):
@@ -140,7 +141,7 @@ acf_add_local_field_group(array(
 	),
 	'menu_order' => 0,
 	'position' => 'normal',
-	'style' => 'default',
+	'style' => 'seamless',
 	'label_placement' => 'top',
 	'instruction_placement' => 'label',
 	'hide_on_screen' => '',

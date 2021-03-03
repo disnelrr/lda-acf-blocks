@@ -16,8 +16,9 @@ acf_register_block( array(
 	'render_template'	=> LDABLOCKSDIR . 'partials/lda-team-members.php',
 	'category'		=> 'formatting',
 	'icon'			=> 'buddicons-buddypress-logo',
-	'mode'			=> 'preview',
-	'keywords'		=> array( 'staff', 'user' )
+	'keywords'		=> array( 'staff', 'user' ),
+	'mode'			=> 'edit',
+	'supports'		=> array( 'mode' => false )
 ));
 
 acf_add_local_field_group(array(
