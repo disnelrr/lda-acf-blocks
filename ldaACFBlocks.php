@@ -37,5 +37,6 @@ class ldaACFBlocks {
 		require_once LDABLOCKSDIR . 'acf/lda-team-members.php';
 		require_once LDABLOCKSDIR . 'acf/lda-testimonials.php';
 		require_once LDABLOCKSDIR . 'acf/lda-contact.php';
+		require_once LDABLOCKSDIR . 'acf/lda-gallery.php';
 	}
 }
