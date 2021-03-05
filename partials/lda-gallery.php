@@ -10,7 +10,7 @@
 
  ?>
 
- <main id="content p-0">
+ <main id="content" class="p-0">
      <section class="info-section page-section large-padding-regular-padding">
          <div class="container">
              <div class="row">
@@ -41,23 +41,12 @@
              <?php while ( have_rows('items') ) :
                  the_row();
                  $images = array();
-                 $images[] = get_sub_field('image_1');
-                 $images[] = get_sub_field('image_2');
-                 $images[] = get_sub_field('image_3');
-                 $images[] = get_sub_field('image_4');
+                 for ($i = 1; $i <= 4 ; $i++) {
+                    $images[] = get_sub_field('image_' . $i);
+                 }
                  $text = get_sub_field('text');
                  $layout = get_sub_field('layout'); ?>
-                 <?php if ( $layout == 'layout-2-1-text-image' ) : ?>
-                     <div class="gallery-row layout-2-1-with-text">
-                         <div class="gallery-col">
-                             <img class="full-size-image" src="<?php echo $images[0] ?>" />
-                             <a class="fancybox" href="<?php echo $images[0] ?>" data-fancybox="images"></a>
-                         </div>
-                         <div class="gallery-col d-flex align-items-center">
-                             <p><?php echo $text ?></p>
-                         </div>
-                     </div>
-                 <?php elseif ( $layout == 'layout-1-text' ) : ?>
+                 <?php if ( $layout == 'layout-1-text' ) : ?>
                      <div class="container">
                          <div class="row">
                              <div class="col-12 mb-2">
@@ -77,10 +66,64 @@
                              <?php endif; ?>
                          <?php endforeach; ?>
                      </div>
+                 <?php elseif ( $layout == 'layout-1-2-text-image-image' || $layout == 'layout-2-1-image-text-image' ) : ?>
+                     <div class="gallery-row layout-2-1" style="align-items: inherit">
+                         <?php if ( $layout == 'layout-2-1-image-text-image' ) : ?>
+                            <div class="gallery-col">
+                                <img class="full-size-image" data-label="Before" src="<?php echo $images[0] ?>" />
+                                <a class="fancybox" href="<?php echo $images[0] ?>" data-fancybox="images"></a>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="gallery-col d-flex flex-column">
+                            <br />
+                            <p><?php echo $text ?></p>
+                            <span style="flex-grow: 1"></span>
+                            <div class="position-relative">
+                                <img class="full-size-image" data-label="Before" src="<?php echo $images[1] ?>" />
+                                <a class="fancybox" href="<?php echo $images[1] ?>" data-fancybox="images"></a>
+                            </div>
+                        </div>
+
+                        <?php if ( $layout == 'layout-1-2-text-image-image' ) : ?>
+                           <div class="gallery-col">
+                               <img class="full-size-image" data-label="Before" src="<?php echo $images[0] ?>" />
+                               <a class="fancybox" href="<?php echo $images[0] ?>" data-fancybox="images"></a>
+                           </div>
+                       <?php endif; ?>
+                    </div>
+                 <?php elseif ( strpos($layout, '-text-image') !== false || strpos($layout, 'layout-1-1-1-text') !== false ) : ?>
+                        <?php $layout_class = strpos($layout, '2-1') !== false || strpos($layout, 'right') !== false ? 'layout-2-1-with-text' : 'layout-1-2-with-text' ?>
+                        <div class="gallery-row <?php echo $layout_class ?>">
+                            <?php if ( strpos($layout, '1-2') || strpos($layout, 'left') ) : ?>
+                                <div class="gallery-col d-flex align-items-center">
+                                    <p><?php echo $text ?></p>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ( $layout == 'layout-1-1-1-text-right' ) : ?>
+                                <div class="gallery-col">
+                            <?php endif; ?>
+                                <div class="gallery-col">
+                                    <img class="full-size-image" src="<?php echo $images[0] ?>" />
+                                    <a class="fancybox" href="<?php echo $images[0] ?>" data-fancybox="images"></a>
+                                </div>
+                                <?php if ( $images[1] ) : ?>
+                                    <div class="gallery-col">
+                                        <img class="full-size-image" src="<?php echo $images[1] ?>" />
+                                        <a class="fancybox" href="<?php echo $images[1] ?>" data-fancybox="images"></a>
+                                    </div>
+                                <?php endif; ?>
+                            <?php if ( $layout == 'layout-1-1-1-text-right' ) : ?>
+                               </div>
+                            <?php endif; ?>
+                            <?php if ( strpos($layout, '2-1') !== false || strpos($layout, 'right') !== false ) : ?>
+                                <div class="gallery-col d-flex align-items-center">
+                                    <p><?php echo $text ?></p>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                  <?php endif; ?>
-
             <?php endwhile; ?>
-
         <?php endif; ?>
     </section>
 
