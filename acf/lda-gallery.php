@@ -17,8 +17,7 @@ acf_register_block(array(
     'category'		=> 'formatting',
     'icon'			=> 'images-alt2',
     'keywords'		=> array( 'image', 'project' ),
-    'mode'			=> 'edit',
-    'supports'		=> array( 'mode' => false )
+    'mode'			=> 'preview',
 ));
 
 if (function_exists('acf_add_local_field_group')):
