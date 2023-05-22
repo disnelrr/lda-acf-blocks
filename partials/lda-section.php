@@ -16,6 +16,7 @@ $section['id'] = get_field('id');
 $section['class'] = get_field('class');
 $section['dark'] = get_field('dark');
 $section['keep_circle'] = get_field('keep_circle');
+$section['hide_circle'] = get_field('hide_circle');
 $section['rtl'] = get_field('rtl');
 $section['add_center_classes'] = get_field('add_center_classes');
 $section['hide_line'] = get_field('hide_line');
@@ -25,7 +26,7 @@ if ( ! $section['hide_line'] ) {
     $top_text = $circle_button['top_text'];
     $bottom_text = $circle_button['bottom_text'];
     $linked_page = $circle_button['linked_page'];
-    $url = get_permalink( $linked_page->ID );
+    $url = $linked_page ? get_permalink( $linked_page->ID ) : '';
     $section['circle_content'] = <<<EOT
         <a href="{$url}" class="no-decoration text-uppercase"><span>{$top_text}</span><br/><span>{$bottom_text}</span></a>
         EOT;

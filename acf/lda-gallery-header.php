@@ -39,11 +39,10 @@ acf_add_local_field_group(array(
                 'class' => '',
                 'id' => '',
             ),
-            'default_value' => 2021,
+            'default_value' => date("Y"),
             'placeholder' => '',
             'prepend' => '',
-            'append' => '',
-            'maxlength' => 4,
+            'append' => ''
         ),
         array(
             'key' => 'field_6042acd54b2c0',
