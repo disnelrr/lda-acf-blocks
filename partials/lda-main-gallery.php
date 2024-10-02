@@ -38,11 +38,14 @@
 
            <?php if (have_rows('galleries')): $i = 1; ?>
              <?php $classes = array('left', 'portrait-left', 'portrait-right', 'right'); ?>
-             <!-- Open at least one gallery container -->
-             <div class="row gallery-container">
-               <div class="gallery-container__left col-md-6 col-12 p-0">
-                <?php while (have_rows('galleries')): the_row(); ?>
-                  <?php if ($i % 3 == 0): ?>
+             
+                <?php while (have_rows('galleries')): the_row(); $is_closed = False; ?>
+                  <?php if ($i == 1): ?>
+                    <!-- Open at least one gallery container -->
+                    <div class="row gallery-container">
+                      <div class="gallery-container__left col-md-6 col-12 p-0">
+                  <?php endif; ?>
+                  <?php if ($i == 3): ?>
                     <!-- Close left and open right -->
                     </div><div class="gallery-container__right col-md-6 col-12 pr-0">
                   <?php endif; ?>
@@ -61,19 +64,22 @@
                       </div>
                   </div>
 
-                  <?php if ($i % 4 == 0): ?>
-                    <!-- Open new container every each 4 images -->
-                    </div><div class="row gallery-container">
+                  <?php if ($i == 4): $i = 0; ?>
+                    <!-- Close container every each 4 images -->
+                    </div></div>
                   <?php endif; ?>
 
                   <?php $i++ ?>
                 <?php endwhile?>
 
+                <?php if ($i < 4): ?>
               <!-- Close left or right inner container -->
               </div>
             <!-- Close gallery container just in case there are less that 4 items -->
             </div>
+            <?php endif; ?>
            <?php endif; ?>
+          </div>
            
          <?php echo render_circle_button('back-to-top-button', 'BACK', 'TO TOP'); ?>
      </section>
