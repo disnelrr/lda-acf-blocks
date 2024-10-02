@@ -1,11 +1,6 @@
 ;
-(function($, window, document, undefined) {
+(function ($, window, document, undefined) {
     'use strict';
-
-    $('document').ready(function() {
-
-        
-
-    });
+    
 
 })(jQuery, window, document);

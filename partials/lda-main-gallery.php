@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Displays a Gallery with different formats
  *
@@ -8,79 +9,85 @@
  * @license      GPL-2.0+
  **/
 
- ?>
 
- <main id="content">
-     <section class="info-section page-section large-padding-regular-padding main-gallery">
-         <div class="container">
-             <div class="row">
-                 <div class="col-12">
-                     <h2>
-                         <?php echo get_field('title'); ?>
-                     </h2>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-12">
-                   <p>
-                     <?php echo get_field('intro'); ?>
-                   </p>
-                 </div>
-             </div>
-         </div>
-     </section>
-     <section>
- 		<?php get_template_part('template_part/gallery-menu');?>
+$left_images = [];
+$right_images = [];
+$i = 0;
+if (have_rows('galleries')) :
+  while (have_rows('galleries')) : the_row();
+    $image_object = [
+      'image' => get_sub_field('image'),
+      'size' => get_sub_field('size'),
+      'link' => get_sub_field('link'),
+      'name' => get_sub_field('name'),
+    ];
+    if ($i % 2 == 0) :
+      $left_images[] = $image_object;
+    else :
+      $right_images[] = $image_object;
+    endif;
+    $i++;
+  endwhile;
+endif;
 
-         <div class="gallery-separator"></div>
 
-         <div class="container-fluid">
-
-           <?php if (have_rows('galleries')): $i = 1; ?>
-             <?php $classes = array('left', 'portrait-left', 'portrait-right', 'right'); ?>
-             
-                <?php while (have_rows('galleries')): the_row(); $is_closed = False; ?>
-                  <?php if ($i == 1): ?>
-                    <!-- Open at least one gallery container -->
-                    <div class="row gallery-container">
-                      <div class="gallery-container__left col-md-6 col-12 p-0">
-                  <?php endif; ?>
-                  <?php if ($i == 3): ?>
-                    <!-- Close left and open right -->
-                    </div><div class="gallery-container__right col-md-6 col-12 pr-0">
-                  <?php endif; ?>
-
-                  <?php $image_class = $i % 4 == 0 ? $classes[3] : $classes[$i % 4 - 1]; ?>
-
-                  <div id="<?php echo str_replace(' ', '-', get_sub_field('name')); ?>" class="gallery-item image-<?php echo $image_class; ?>">
-                      <div class="text-container">
-                          <h3 class="font-weight-bold text-uppercase"><?php echo get_sub_field('name'); ?></h3>
-                          <p><?php echo get_sub_field('size'); ?> sq.ft</p>
-                      </div>
-                      <div class="img-container">
-                         <a href="<?php echo get_sub_field('link'); ?>">
-                           <img src="<?php echo get_sub_field('image'); ?>" />
-                         </a>
-                      </div>
-                  </div>
-
-                  <?php if ($i == 4): $i = 0; ?>
-                    <!-- Close container every each 4 images -->
-                    </div></div>
-                  <?php endif; ?>
-
-                  <?php $i++ ?>
-                <?php endwhile?>
-
-                <?php if ($i < 4): ?>
-              <!-- Close left or right inner container -->
-              </div>
-            <!-- Close gallery container just in case there are less that 4 items -->
+function display_images_colum($images)
+{
+  foreach ($images as $image) : ?>
+    <a href="<?php echo $image['link']; ?>">
+      <div class="image-container mb-4 position-relative">
+        <div class="position-absolute w-100" style="top: 0; left: 0; background: black; display: flex; align-items: center; justify-content: center;">
+          <img class="w-100" src="<?php echo $image['image']; ?>" alt="" loading="lazy" style="opacity: 0.5" />
+          <div class="text-white p-5 position-absolute">
+            <div class="font-weight-bold text-uppercase" style="font-size: 2rem; text-align: center;">
+              <?php echo $image['name']; ?>
             </div>
-            <?php endif; ?>
-           <?php endif; ?>
           </div>
-           
-         <?php echo render_circle_button('back-to-top-button', 'BACK', 'TO TOP'); ?>
-     </section>
- </main>
+        </div>  
+        <img class="w-100 position-relative image-overlay" style="z-index: 10" src="<?php echo $image['image']; ?>" alt="" loading="lazy" />
+      </div>
+    </a>
+<?php endforeach;
+}
+
+?>
+
+<main id="content">
+  <section class="info-section page-section large-padding-regular-padding main-gallery">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>
+            <?php echo get_field('title'); ?>
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>
+            <?php echo get_field('intro'); ?>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <?php get_template_part('template_part/gallery-menu'); ?>
+
+    <div class="gallery-separator"></div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-6 px-0 px-md-2">
+          <?php display_images_colum($left_images); ?>
+        </div>
+        <div class="col-md-6 px-0 px-md-2">
+          <div class="d-none d-md-block" style="height: 0; padding-bottom: 75%"></div>
+          <?php display_images_colum($right_images); ?>
+        </div>
+      </div>
+
+      <?php echo render_circle_button('back-to-top-button', 'BACK', 'TO TOP'); ?>
+  </section>
+</main>

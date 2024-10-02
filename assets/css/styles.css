@@ -1,0 +1,13 @@
+@keyframes imgopacity {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.image-overlay:hover {
+  animation: imgopacity 1s forwards;
+}
