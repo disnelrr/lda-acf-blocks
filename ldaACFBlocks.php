@@ -46,6 +46,7 @@ class ldaACFBlocks
         require_once LDABLOCKSDIR . 'acf/lda-gallery.php';
         require_once LDABLOCKSDIR . 'acf/lda-gallery-header.php';
         require_once LDABLOCKSDIR . 'acf/lda-main-gallery.php';
+        require_once LDABLOCKSDIR . 'acf/lda-main-gallery-header.php';
         require_once LDABLOCKSDIR . 'acf/lda-careers.php';
     }
 }
