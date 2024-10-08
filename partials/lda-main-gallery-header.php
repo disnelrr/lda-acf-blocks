@@ -11,7 +11,7 @@
 
 ?>
 
-<section class="info-section page-section large-padding-regular-padding main-gallery">
+<section class="info-section page-section large-padding-regular-padding">
   <div class="container">
     <div class="row">
       <div class="col-12">
