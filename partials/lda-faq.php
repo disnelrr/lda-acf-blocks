@@ -25,6 +25,9 @@
   }
 
   .lda-faq .lda-cta-btn {
+    position: relative;
+    height: 50px;
+    font-size: 16px;
     display: inline-flex;
     align-items: center;
     gap: 12px;
@@ -32,7 +35,7 @@
     color: #fff;
     text-decoration: none;
     border-radius: 9999px;
-    padding: 12px 14px 12px 20px;
+    padding: 12px 60px 12px 20px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -43,8 +46,10 @@
   .lda-faq .lda-cta-btn:active { transform: translateY(1px); }
 
   .lda-faq .lda-cta-btn__bubble {
-    width: 40px;
-    height: 40px;
+    position: absolute;
+    right: 0px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: #000;
     color: #fff;
