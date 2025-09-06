@@ -28,28 +28,31 @@
       </div>
     </div>
   </div>
-  </section>
+</section>
 
-<section class="page-section">
+<section class="page-section lda-faq">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <?php if ( have_rows('faq') ) : $first = true; ?>
-          <?php while ( have_rows('faq') ) : the_row(); ?>
-            <?php if ( ! $first ) : ?>
-              <hr />
-            <?php endif; $first = false; ?>
-            <p class="font-weight-bold"><?php echo esc_html( get_sub_field('question') ); ?></p>
+        <hr class="lda-faq-divider" />
+        <?php if (have_rows('faq')) : $first = true; ?>
+          <?php while (have_rows('faq')) : the_row(); ?>
+            <?php if (! $first) : ?>
+              <hr class="lda-faq-divider" />
+            <?php endif;
+            $first = false; ?>
+            <p class="font-weight-bold"><?php echo esc_html(get_sub_field('question')); ?></p>
             <div class="faq-answer">
               <?php echo get_sub_field('answer'); ?>
             </div>
           <?php endwhile; ?>
         <?php endif; ?>
 
-        <?php $cta = get_field('ctaText'); if ( ! empty($cta) ) : ?>
+        <?php $cta = get_field('ctaText');
+        if (! empty($cta)) : ?>
           <?php $ctaUrl = function_exists('get_field') ? get_field('ctaUrl') : ''; ?>
           <div class="mt-4">
-            <a class="lda-cta-btn" href="<?php echo esc_url( $ctaUrl ? $ctaUrl : '#' ); ?>">
+            <a class="lda-cta-btn" href="<?php echo esc_url($ctaUrl ? $ctaUrl : '#'); ?>">
               <span class="lda-cta-btn__label"><?php echo esc_html($cta); ?></span>
               <span class="lda-cta-btn__bubble" aria-hidden="true">&rarr;</span>
             </a>
@@ -59,5 +62,3 @@
     </div>
   </div>
 </section>
-
-<?php
