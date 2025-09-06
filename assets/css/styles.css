@@ -11,3 +11,54 @@
 .image-overlay:hover {
   animation: imgopacity 1s forwards;
 }
+
+/* LDA CTA Button */
+.lda-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #f26522; /* LDA orange (approx) */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 9999px;
+  padding: 12px 14px 12px 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: background-color .2s ease, filter .2s ease, transform .05s ease;
+}
+
+.lda-cta-btn:hover {
+  filter: brightness(0.95);
+}
+
+.lda-cta-btn:active {
+  transform: translateY(1px);
+}
+
+.lda-cta-btn__bubble {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.lda-cta-btn__label { color: #fff; }
+
+/* Full-bleed divider for FAQ */
+.lda-faq .lda-faq-divider {
+  border: 0;
+  height: 1px;
+  background: #000;
+  width: 100vw;
+  /* Break out of centered container to full viewport width */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
