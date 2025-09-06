@@ -11,6 +11,52 @@
 
 ?>
 
+<style>
+  /* Scoped to FAQ block */
+  .lda-faq .lda-faq-divider {
+    border: 0;
+    height: 1px;
+    background: #000;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .lda-faq .lda-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #f26522; /* LDA orange */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 9999px;
+    padding: 12px 14px 12px 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: background-color .2s ease, filter .2s ease, transform .05s ease;
+  }
+
+  .lda-faq .lda-cta-btn:hover { filter: brightness(0.95); }
+  .lda-faq .lda-cta-btn:active { transform: translateY(1px); }
+
+  .lda-faq .lda-cta-btn__bubble {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #000;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .lda-faq .lda-cta-btn__label { color: #fff; }
+</style>
+
 <section class="info-section page-section large-padding-regular-padding">
   <div class="container">
     <div class="row">
