@@ -15,7 +15,7 @@
   /* Scoped to FAQ block */
   .lda-faq .lda-faq-divider {
     border: 0;
-    height: 1px;
+    height: 0.5px;
     background: #000;
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -76,7 +76,7 @@
   </div>
 </section>
 
-<section class="page-section lda-faq">
+<section class="lda-faq">
   <div class="container">
     <div class="row">
       <div class="col-12">
