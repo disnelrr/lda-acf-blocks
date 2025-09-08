@@ -104,9 +104,17 @@
 
         <?php $cta = get_field('ctaText');
         if (! empty($cta)) : ?>
-          <?php $ctaUrl = function_exists('get_field') ? get_field('ctaUrl') : ''; ?>
+          <?php 
+            $cta_link = function_exists('get_field') ? get_field('cta_link') : null;
+            // Accept WP_Post object or ID, derive permalink if available
+            if ($cta_link) {
+              $ctaUrl = is_object($cta_link) ? get_permalink($cta_link) : get_permalink(intval($cta_link));
+            } else {
+              $ctaUrl = '#';
+            }
+          ?>
           <div class="mt-4">
-            <a class="lda-cta-btn" href="<?php echo esc_url($ctaUrl ? $ctaUrl : '#'); ?>">
+            <a class="lda-cta-btn" href="<?php echo esc_url($ctaUrl); ?>">
               <span class="lda-cta-btn__label"><?php echo esc_html($cta); ?></span>
               <span class="lda-cta-btn__bubble" aria-hidden="true">&rarr;</span>
             </a>

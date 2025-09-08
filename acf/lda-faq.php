@@ -141,6 +141,28 @@ acf_add_local_field_group(array(
             'append' => '',
             'maxlength' => '',
         ),
+        array(
+            'key' => 'field_lda_faq_cta_link',
+            'label' => 'CTA Link',
+            'name' => 'cta_link',
+            'type' => 'post_object',
+            'instructions' => 'Select the page this CTA should link to',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'post_type' => array(
+                0 => 'page',
+            ),
+            'taxonomy' => '',
+            'allow_null' => 1,
+            'multiple' => 0,
+            'return_format' => 'object',
+            'ui' => 1,
+        ),
     ),
     'location' => array(
         array(
@@ -177,4 +199,3 @@ acf_add_local_field_group(array(
 ));
 
 endif;
-
