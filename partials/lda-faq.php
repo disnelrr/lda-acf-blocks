@@ -26,6 +26,7 @@
 
   .lda-faq .lda-cta-btn {
     position: relative;
+    z-index: 0;
     height: 50px;
     font-size: 16px;
     display: inline-flex;
@@ -47,6 +48,8 @@
 
   .lda-faq .lda-cta-btn__bubble {
     position: absolute;
+    z-index: 10;
+    font-size: 22px;
     right: 0px;
     width: 50px;
     height: 50px;
@@ -81,7 +84,7 @@
   </div>
 </section>
 
-<section class="lda-faq">
+<section class="lda-faq page-section large-padding-regular-padding" style="padding-top: 50px;">
   <div class="container">
     <div class="row">
       <div class="col-12">
