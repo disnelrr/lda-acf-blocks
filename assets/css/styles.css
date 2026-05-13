@@ -62,3 +62,9 @@
   margin-top: 24px;
   margin-bottom: 24px;
 }
+
+/* Gallery submenu: hide current page item so only cross-links remain visible */
+.gallery-nav .current-menu-item,
+.gallery-nav .current_page_item {
+  display: none;
+}
