@@ -30,6 +30,10 @@
             // Only images
             elseif ($layout == 'images_set') :
                 $images = get_sub_field('images');
+                $images = is_array($images) ? $images : [];
+                if (empty($images)) :
+                    continue;
+                endif;
                 $layout_class = 'layout' . str_repeat('-1', count($images));
                 if (count($images) == 2) :
                     switch (get_sub_field('variant')):
@@ -89,6 +93,10 @@
             <?php // Image(s) + Text
             elseif ($layout == 'images_text') :
                 $images = get_sub_field('images');
+                $images = is_array($images) ? $images : [];
+                if (empty($images)) :
+                    continue;
+                endif;
                 $text = get_sub_field('text');
                 $text_left = get_sub_field('text_position') == 'Left';
                 $layout_class = $text_left ? 'layout-1-2' : 'layout-2-1'; ?>
