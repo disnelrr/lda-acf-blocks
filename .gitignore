@@ -1,0 +1,4 @@
+# AI agent local artifacts
+graphify-out/
+.codex/
+.claude/
